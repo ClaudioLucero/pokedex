@@ -1,6 +1,6 @@
 import './Header.css';
 
-const Header = ({ words, changeLanguage }) => {
+const Header = ({ words, changeLanguage }) => {//recibe textos de idioa seleccionado y metodo para cambiar idioma
 
     function handleSelect(e) {
         changeLanguage(e.target.value);

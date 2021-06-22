@@ -8,9 +8,9 @@ import './Pokemon.css';
 const Pokemon = ({ data, words }) => {
 
   const { isShowing, toggle } = UseModalDetail(false);
-  const [descriptionES, setDescriptionES] = useState('');
+  const [descriptionES, setDescriptionES] = useState('');//descripciones de cada pokeon
   const [descriptionEN, setDescriptionEN] = useState('');
-  const [abilityES, setAbilityES] = useState('');
+  const [abilityES, setAbilityES] = useState('');//para guardar traduccion de habilidades de cada pokemon,puede tener mas de una habilidad
   const [abilityES2, setAbilityES2] = useState('');
   const [abilityEN, setAbilityEN] = useState('');
   const [abilityEN2, setAbilityEN2] = useState('');
@@ -18,12 +18,12 @@ const Pokemon = ({ data, words }) => {
   useEffect(() => {
     
     const fetchData = async api => {
-      let urls = getUrl(data);
-      await getDetailPoke(urls).then(pokes => {
+      let urls = getUrl(data);//creo array de urls para consutar caracteristicas de una habilidad
+      await getDetailPoke(urls).then(pokes => {//s
         if (pokes) {
           getDescription(pokes[0]);
           getAbilities(pokes[1], 1);
-          if (pokes.length === 3) getAbilities(pokes[2], 2);
+          if (pokes.length === 3) getAbilities(pokes[2], 2);//control cantidad de habilidades
 
         }
       })
@@ -34,14 +34,14 @@ const Pokemon = ({ data, words }) => {
 
   function getUrl(data) {
     let urls = [];
-    urls[0] = { url: data.species.url };
+    urls[0] = { url: data.species.url };//url para obtengener descripcion del pokemon
     data.abilities.forEach(u => {
-      urls.push({ url: u.ability.url });
+      urls.push({ url: u.ability.url });//urls para obtener caracteristicas de la habilidad,cada pokemon puede tener mas de una habilidad
     });
     return urls;
   }
 
-  function getDescription(data) {
+  function getDescription(data) {//guardo descripciones obtenidas,en el lenguage ingles,español
     data.data.flavor_text_entries.forEach(r => {
       if (r.language.name === 'es') {
         setDescriptionES(r.flavor_text);
@@ -53,7 +53,7 @@ const Pokemon = ({ data, words }) => {
 
   }
 
-  function getAbilities(data, type) {
+  function getAbilities(data, type) {//guardo habilidades en ambos idiomas,type control si es un okemn con una o dos habilidades
 
     data.data.names.forEach(r => {
 

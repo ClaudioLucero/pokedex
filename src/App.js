@@ -14,7 +14,7 @@ function App() {
   const [nextPag, setNextPag] = useState();
   const [prevPag, setPrevPag] = useState();
   const [loading, setLoading] = useState(false);
-  const [word, setWords] = useState({ ...getLanguage('es') });
+  const [word, setWords] = useState({ ...getLanguage('es') });//idioma español por defecto
 
 
   useEffect(() => {
@@ -22,13 +22,13 @@ function App() {
     const fetchData = async api => {
 
       setLoading(true);
-      let res = await getPokedex({ api: actualPag });
+      let res = await getPokedex({ api: actualPag });//obtengo  urls de los primeros 5 pokemones
       if (res) {
-        await getDetailPoke(res.data.results).then(pokes => {
+        await getDetailPoke(res.data.results).then(pokes => {//obtengo caracteristicas de cada pokemon
           if (pokes) {
             setLoading(false);
-            setNextPag(res.data.next);
-            setPrevPag(res.data.previous);
+            setNextPag(res.data.next);//ulrs de los proximos 5 pokemones
+            setPrevPag(res.data.previous);//ulrs de los 5 pokemones anteriores
             setPokemon([...pokes]);
           }
         })
@@ -39,7 +39,7 @@ function App() {
   }, [actualPag]);
 
   function changeIdiom(i) {
-    setWords({ ...getLanguage(i) });
+    setWords({ ...getLanguage(i) });//obtengo textos del idioma seleccionado
   }
 
   function nextPagefunction() {
