@@ -1,0 +1,73 @@
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid?styles=24573');
+.poke{
+    width: 26vh;
+    height: 26vh;
+    background:url( '../../open-pokeball.png');
+    background-size: cover;
+    margin: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: 'Pokemon Solid', sans-serif;
+    text-shadow: 0px 3px 0px yellow;
+    
+}
+
+.poke img{
+  margin: auto;
+  height: 78%;
+  width: 78%;
+  padding: 10px;
+}
+.name-poke{
+  font-size: 22px;
+  margin-left: 72px;
+  margin-top: -15px;
+  text-transform: capitalize;
+}
+/* @media screen and ( min-width:10px) {
+    .poke {
+      flex: 0 1 calc(89% - 0em);
+    }
+    .poke img{
+      width: 88%;
+    }
+  }
+@media screen and ( min-width:270px) {
+    .poke {
+      flex: 0 1 calc(52% - 0em);
+    }
+    .poke img{
+      width: 85%;
+    }
+  }
+@media screen and ( min-width:448px) {
+    .poke {
+      flex: 0 1 calc(40% - 0em);
+    }
+    .poke img{
+      width: 68%;
+    }
+  }
+
+@media screen and ( min-width:670px) {
+    .poke {
+      flex: 0 1 calc(29% - 1em);
+    }
+    .poke img{
+      width:80%;
+    }
+  }
+
+  @media screen and ( min-width:900px) {
+    .poke {
+      flex: 0 1 calc(32% - 4em);
+      height: 245px;
+    }
+    .poke img{
+      width: 62%;
+    }
+  }
+   */
+
+  
